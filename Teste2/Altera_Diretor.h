@@ -17,6 +17,7 @@ namespace Teste2 {
 	{
 	public:
 		Form^ obj;
+		String^ oldid;
 		Altera_Diretor(void)
 		{
 			InitializeComponent();
@@ -51,14 +52,14 @@ namespace Teste2 {
 	protected:
 	private: System::Windows::Forms::TextBox^ textBox2;
 
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Button^ Alterar;
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	public: String^ idfilme;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
 	public:
 
 	public:
@@ -81,29 +82,26 @@ namespace Teste2 {
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->Alterar = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->textBox2);
-			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->Alterar);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(373, 45);
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(160, 305);
 			this->groupBox1->TabIndex = 10;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Inserir Filme";
+			this->groupBox1->Text = L"Alterar Diretor";
 			// 
 			// textBox2
 			// 
@@ -112,18 +110,9 @@ namespace Teste2 {
 			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 4;
 			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(31, 130);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(38, 13);
-			this->label3->TabIndex = 8;
-			this->label3->Text = L"Diretor";
-			// 
 			// Alterar
 			// 
-			this->Alterar->Location = System::Drawing::Point(44, 172);
+			this->Alterar->Location = System::Drawing::Point(33, 133);
 			this->Alterar->Name = L"Alterar";
 			this->Alterar->Size = System::Drawing::Size(75, 47);
 			this->Alterar->TabIndex = 2;
@@ -157,27 +146,17 @@ namespace Teste2 {
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"ID";
 			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(733, 19);
-			this->textBox3->Multiline = true;
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(140, 404);
-			this->textBox3->TabIndex = 11;
-			// 
-			// Altera_Filme
+			// Altera_Diretor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(894, 469);
-			this->Controls->Add(this->textBox3);
+			this->ClientSize = System::Drawing::Size(185, 217);
 			this->Controls->Add(this->groupBox1);
-			this->Name = L"Altera_Filme";
-			this->Text = L"Altera_Filme";
+			this->Name = L"Altera_Diretor";
+			this->Text = L"Alterar Diretor";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -190,7 +169,7 @@ namespace Teste2 {
 		MySqlCommand^ cmdDataBase = gcnew MySqlCommand("update mydb.diretor set mydb.diretor.nome=(" +
 			"'" + this->textBox2->Text + "'), mydb.diretor.idDiretor=(" +
 			"'" + this->textBox1->Text + "') where mydb.diretor.idDiretor=(" +
-			"'" + antigoid+ "');", conDatabase);
+			"'" + this->oldid+ "');", conDatabase);
 		MySqlDataReader^ myreader;
 
 
@@ -224,6 +203,7 @@ namespace Teste2 {
 
 		this->textBox1->Text = id;
 		this->textBox2->Text = nome;
+		this->oldid = id;
 
 	}
 	};

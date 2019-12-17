@@ -17,6 +17,7 @@ namespace Teste2 {
 	{
 	public:
 		Form ^obj;
+		String^ oldid;
 		Altera_Filme(void)
 		{
 			InitializeComponent();
@@ -58,7 +59,7 @@ namespace Teste2 {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	public: String^ idfilme;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
 	public:
 
 	public:
@@ -87,7 +88,6 @@ namespace Teste2 {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -100,12 +100,12 @@ namespace Teste2 {
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(373, 45);
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(160, 305);
 			this->groupBox1->TabIndex = 10;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Inserir Filme";
+			this->groupBox1->Text = L"Alterar Filme";
 			// 
 			// textBox2
 			// 
@@ -167,27 +167,17 @@ namespace Teste2 {
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"ID";
 			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(733, 19);
-			this->textBox3->Multiline = true;
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(140, 404);
-			this->textBox3->TabIndex = 11;
-			// 
 			// Altera_Filme
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(894, 469);
-			this->Controls->Add(this->textBox3);
+			this->ClientSize = System::Drawing::Size(180, 274);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"Altera_Filme";
-			this->Text = L"Altera_Filme";
+			this->Text = L"Alterar Filme";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -206,18 +196,13 @@ namespace Teste2 {
 			conDatabase1->Open();
 			myreader1 = cmdDataBase1->ExecuteReader();
 			myreader1->Read();
-
-			String^ S = ("update mydb.filme set mydb.filme.titulo=(" +
-				"'" + this->textBox2->Text + "'), , mydb.filme.Diretor_idDiretor=(" +
-				"'" + myreader1->GetUInt32(0) + "') where mydb.filme.idFilme=(" +
-				"'" + this->textBox1->Text + "');");
-			this->textBox3->Text = S;
 			String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
 			MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
 			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("update mydb.filme set mydb.filme.titulo=(" +
 				"'" +this->textBox2->Text+ "'), mydb.filme.Diretor_idDiretor=("+
-				"'" +myreader1->GetUInt32(0)+ "') where mydb.filme.idFilme=(" +
-				"'" +this->textBox1->Text+ "');", conDatabase);
+				"'" +myreader1->GetUInt32(0)+ "'), mydb.filme.idFilme=("+
+			    "'" +this->textBox1->Text+"') where mydb.filme.idFilme=(" +
+				"'" +this->oldid+ "');", conDatabase);
 			MySqlDataReader^ myreader;
 			conDatabase1->Close();
 
@@ -255,7 +240,7 @@ namespace Teste2 {
 
 		this->textBox1->Text = id;
 		this->textBox2->Text = nome;
-
+		this->oldid = id;
 		String^ constring1 = L"datasource=localhost;port=3306;username=root;password=root";
 		MySqlConnection^ conDatabase1 = gcnew  MySqlConnection(constring1);
 		MySqlCommand^ cmdDataBase1 = gcnew MySqlCommand("select * from mydb.diretor", conDatabase1);

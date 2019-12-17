@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{44815357-c2c7-4416-a926-495db0571447}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -32,5 +35,13 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\icons8-delete-bin-30.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\icons8-edit-24.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

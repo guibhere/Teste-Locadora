@@ -132,6 +132,19 @@
   <metadata name="alterar_botao.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Deletar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Deletar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAMRJREFUSEvt
+        k0EKwlAQQ/9xXOhKd+per62g91BQ9BKaLIRQgpixUME+eHQY2oR+2jbyyxzho+MB9sIedsOrMutj+ize
+        wZG3uGOrGONCKsa4kIoxLqRijAupGONClnAOb7LjzN1KdmqMC2EBmUIWUs5kAd0zMS5Ei3jVWU9BjXEh
+        9A5n8MUEXqG7l8a4EOqKL9DdS2NcyGBHPdjHxV+GBfp2nLlby06NcSEVY1xIxRgXUjHmDF1Q4gnGbOE3
+        5SzdwJG/pLUnq9hJaOo0OGwAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
