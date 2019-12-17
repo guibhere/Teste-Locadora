@@ -3,6 +3,7 @@
 #include <iostream>
 //#include "stdAfx.h"
 #include "Altera_Filme.h"
+#include"Pesquisa.h"
 
 
 namespace Teste2 {
@@ -64,6 +65,8 @@ namespace Teste2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewButtonColumn^ alterar_botao;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ pesquisarToolStripMenuItem;
 
 
 	protected:
@@ -102,9 +105,12 @@ namespace Teste2 {
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->erro = (gcnew System::Windows::Forms::TextBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->pesquisarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -290,6 +296,22 @@ namespace Teste2 {
 			this->erro->Size = System::Drawing::Size(127, 20);
 			this->erro->TabIndex = 12;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->pesquisarToolStripMenuItem });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(831, 24);
+			this->menuStrip1->TabIndex = 13;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// pesquisarToolStripMenuItem
+			// 
+			this->pesquisarToolStripMenuItem->Name = L"pesquisarToolStripMenuItem";
+			this->pesquisarToolStripMenuItem->Size = System::Drawing::Size(69, 20);
+			this->pesquisarToolStripMenuItem->Text = L"Pesquisar";
+			this->pesquisarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::pesquisarToolStripMenuItem_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -300,6 +322,8 @@ namespace Teste2 {
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -307,6 +331,8 @@ namespace Teste2 {
 			this->groupBox1->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -319,7 +345,11 @@ namespace Teste2 {
 		MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.filme inner join mydb.diretor on "+
 			"mydb.filme.Diretor_idDiretor = mydb.diretor.idDiretor", conDatabase);
 		MySqlDataReader^ myreader;
+		//this->dataGridView1->DataSource = NULL;
+		this->dataGridView1->Rows->Clear();
+		this->selecao->Items->Clear();
 
+	
 
 		try
 		{
@@ -493,6 +523,11 @@ private: System::Void inserir_diretor_Click(System::Object^ sender, System::Even
 
 }
 private: System::Void selecao_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void pesquisarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Pesquisa^ pesq = gcnew Pesquisa(this);
+	 
+	pesq->ShowDialog();
 }
 };
 }
