@@ -124,6 +124,9 @@
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Altera_Diretor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Altera_Filme.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -135,6 +138,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Altera_Diretor.resx">
+      <DependentUpon>Altera_Diretor.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Altera_Filme.resx">
       <DependentUpon>Altera_Filme.h</DependentUpon>
     </EmbeddedResource>

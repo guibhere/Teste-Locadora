@@ -4,6 +4,7 @@
 //#include "stdAfx.h"
 #include "Altera_Filme.h"
 #include"Pesquisa.h"
+#include"Altera_Diretor.h"
 
 
 namespace Teste2 {
@@ -61,12 +62,35 @@ namespace Teste2 {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::ComboBox^ selecao;
 	private: System::Windows::Forms::TextBox^ erro;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ alterar_botao;
+
+
+
+
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ pesquisarToolStripMenuItem;
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::RadioButton^ lista_filmes;
+	private: System::Windows::Forms::RadioButton^ lista_diretor;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id_Diretor;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewButtonColumn^ alterar_botao;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	protected:
@@ -85,10 +109,6 @@ namespace Teste2 {
 		void InitializeComponent(void)
 		{
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->alterar_botao = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Inserir = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -107,49 +127,37 @@ namespace Teste2 {
 			this->erro = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->pesquisarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->lista_filmes = (gcnew System::Windows::Forms::RadioButton());
+			this->lista_diretor = (gcnew System::Windows::Forms::RadioButton());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Id_Diretor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->alterar_botao = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
+			this->groupBox3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Column1,
-					this->Column2, this->Column3, this->alterar_botao
+					this->Column2, this->Id_Diretor, this->Column3, this->alterar_botao
 			});
-			this->dataGridView1->Location = System::Drawing::Point(24, 50);
+			this->dataGridView1->Location = System::Drawing::Point(35, 89);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(361, 305);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Id";
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 25;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Titulo";
-			this->Column2->Name = L"Column2";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Diretor";
-			this->Column3->Name = L"Column3";
-			// 
-			// alterar_botao
-			// 
-			this->alterar_botao->HeaderText = L"Alterar";
-			this->alterar_botao->Name = L"alterar_botao";
-			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(154, 370);
+			this->button1->Location = System::Drawing::Point(153, 400);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 1;
@@ -312,11 +320,73 @@ namespace Teste2 {
 			this->pesquisarToolStripMenuItem->Text = L"Pesquisar";
 			this->pesquisarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::pesquisarToolStripMenuItem_Click);
 			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->lista_filmes);
+			this->groupBox3->Controls->Add(this->lista_diretor);
+			this->groupBox3->Location = System::Drawing::Point(115, 27);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(200, 51);
+			this->groupBox3->TabIndex = 14;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Lista de\?";
+			// 
+			// lista_filmes
+			// 
+			this->lista_filmes->AutoSize = true;
+			this->lista_filmes->Location = System::Drawing::Point(6, 19);
+			this->lista_filmes->Name = L"lista_filmes";
+			this->lista_filmes->Size = System::Drawing::Size(54, 17);
+			this->lista_filmes->TabIndex = 3;
+			this->lista_filmes->TabStop = true;
+			this->lista_filmes->Text = L"Filmes";
+			this->lista_filmes->UseVisualStyleBackColor = true;
+			this->lista_filmes->CheckedChanged += gcnew System::EventHandler(this, &MyForm::lista_filmes_CheckedChanged);
+			// 
+			// lista_diretor
+			// 
+			this->lista_diretor->AutoSize = true;
+			this->lista_diretor->Location = System::Drawing::Point(66, 19);
+			this->lista_diretor->Name = L"lista_diretor";
+			this->lista_diretor->Size = System::Drawing::Size(67, 17);
+			this->lista_diretor->TabIndex = 4;
+			this->lista_diretor->TabStop = true;
+			this->lista_diretor->Text = L"Diretores";
+			this->lista_diretor->UseVisualStyleBackColor = true;
+			this->lista_diretor->CheckedChanged += gcnew System::EventHandler(this, &MyForm::lista_diretor_CheckedChanged);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Id";
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 25;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Titulo";
+			this->Column2->Name = L"Column2";
+			// 
+			// Id_Diretor
+			// 
+			this->Id_Diretor->HeaderText = L"Id_DIretor";
+			this->Id_Diretor->Name = L"Id_Diretor";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Diretor";
+			this->Column3->Name = L"Column3";
+			// 
+			// alterar_botao
+			// 
+			this->alterar_botao->HeaderText = L"Alterar";
+			this->alterar_botao->Name = L"alterar_botao";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(831, 435);
+			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->erro);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
@@ -333,69 +403,60 @@ namespace Teste2 {
 			this->groupBox2->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+			String^ constring1 = L"datasource=localhost;port=3306;username=root;password=root";
+			MySqlConnection^ conDatabase1 = gcnew  MySqlConnection(constring1);
+			MySqlCommand^ cmdDataBase1 = gcnew MySqlCommand("select * from mydb.diretor", conDatabase1);
+			MySqlDataReader^ myreader1;
+
+
+			try
+			{
+				conDatabase1->Open();
+				myreader1 = cmdDataBase1->ExecuteReader();
+				int i = 0;
+				while (myreader1->Read()) {
+
+					this->selecao->Items->Add(myreader1->GetString(1));
+					i += 1;
+				}
+
+			}
+			catch (Exception ^ ex) {
+				MessageBox::Show(ex->Message);
+			}
 
 		}
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
-		MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
-		MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.filme inner join mydb.diretor on "+
-			"mydb.filme.Diretor_idDiretor = mydb.diretor.idDiretor", conDatabase);
-		MySqlDataReader^ myreader;
-		//this->dataGridView1->DataSource = NULL;
-		this->dataGridView1->Rows->Clear();
-		this->selecao->Items->Clear();
 
-	
+		this->dataGridView1->Refresh();
 
-		try
-		{
-			conDatabase->Open();
-			myreader = cmdDataBase->ExecuteReader();
-			int i = 0;
-			while (myreader->Read()) {
-
-				this->dataGridView1->Rows->Add(1);
-				this->dataGridView1->Rows[i]->SetValues(myreader->GetString(0), myreader->GetString(1), myreader->GetString(4));
-				
-				i += 1;
-			}
-
+		if (this->lista_filmes->Checked) {
+			this->lista_filmes_CheckedChanged(sender, e);
 		}
-		catch (Exception ^ ex) {
-			MessageBox::Show(ex->Message);
-		}
-		{
+		else {
+			this->lista_diretor_CheckedChanged(sender, e);}
 
-		}
-		String^ constring1 = L"datasource=localhost;port=3306;username=root;password=root";
-		MySqlConnection^ conDatabase1 = gcnew  MySqlConnection(constring1);
-		MySqlCommand^ cmdDataBase1= gcnew MySqlCommand("select * from mydb.diretor", conDatabase1);
-		MySqlDataReader^ myreader1;
-
-
-		try
-		{
-			conDatabase1->Open();
-			myreader1= cmdDataBase1->ExecuteReader();
-			int i = 0;
-			while (myreader1->Read()) {
-
-				this->selecao->Items->Add(myreader1->GetString(1));
-				i += 1;
-			}
-
-		}
-		catch (Exception ^ ex) {
-			MessageBox::Show(ex->Message);
-		}
-		{
-
-		}
 	}
+
+	private: System::Void Recarregar(System::Object^ sender, System::EventArgs^ e) {
+
+		if (this->lista_filmes->Checked) {
+			this->lista_filmes_CheckedChanged(sender, e);
+		}
+		else {
+			this->lista_diretor_CheckedChanged(sender, e);
+		}
+
+
+
+	}
+
 	private: System::Void Inserir_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ constring1 = L"datasource=localhost;port=3306;username=root;password=root";
 		MySqlConnection^ conDatabase1 = gcnew  MySqlConnection(constring1);
@@ -443,7 +504,7 @@ namespace Teste2 {
 
 
 
-
+		this->Recarregar(sender,e);
 
 		
 		
@@ -453,50 +514,62 @@ namespace Teste2 {
 
 	}
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	if (e->ColumnIndex == 3) {
+	if (e->ColumnIndex == 4) {
 		int linha = e->RowIndex;
 		int coluna = e->ColumnIndex;
 		//int id = this->dataGridView1->Rows[linha]->Cells[0]->Value;
-		try
-		{
-			String^ id = this->dataGridView1->Rows[linha]->Cells[0]->Value->ToString();
-			String^ diretor = this->dataGridView1->Rows[linha]->Cells[2]->Value->ToString();
-
-			String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
-			MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
-			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.filme where mydb.filme.idFilme ="+ 
-				" '"+id+"' ;", conDatabase);
-			MySqlDataReader^ myreader;
-
-
+		if (this->lista_filmes->Checked) {
 			try
 			{
-				conDatabase->Open();
-				myreader = cmdDataBase->ExecuteReader();
-				myreader->Read();
-				this->erro->AppendText(myreader->GetString(1));
-				
-				String^ s = myreader->GetString(1);
-				
-				Altera_Filme^ af = gcnew Altera_Filme(this);
-				af->setfilme(myreader->GetString(0), myreader->GetString(1),diretor);
-				af->ShowDialog();
-				//this->Close();
+				String^ id = this->dataGridView1->Rows[linha]->Cells[0]->Value->ToString();
+				String^ diretor = this->dataGridView1->Rows[linha]->Cells[3]->Value->ToString();
+
+				String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
+				MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
+				MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.filme where mydb.filme.idFilme =" +
+					" '" + id + "' ;", conDatabase);
+				MySqlDataReader^ myreader;
+
+
+				try
+				{
+					conDatabase->Open();
+					myreader = cmdDataBase->ExecuteReader();
+					myreader->Read();
+					this->erro->AppendText(myreader->GetString(1));
+
+					String^ s = myreader->GetString(1);
+
+					Altera_Filme^ af = gcnew Altera_Filme(this);
+					af->setfilme(myreader->GetString(0), myreader->GetString(1), diretor);
+					af->ShowDialog();
+					//this->Close();
+
+				}
+				catch (Exception ^ ex) {
+					MessageBox::Show(ex->Message);
+				}
 
 			}
 			catch (Exception ^ ex) {
 				MessageBox::Show(ex->Message);
-			}
 
+			}
 		}
-		catch (Exception ^ ex) {
-			MessageBox::Show(ex->Message);
+		else {
+			String^ id = this->dataGridView1->Rows[linha]->Cells[2]->Value->ToString();
+			String^ diretor = this->dataGridView1->Rows[linha]->Cells[3]->Value->ToString();
+			Altera_Diretor^ df = gcnew Altera_Diretor(this);
+			df->setfilme(id,diretor);
+			df->ShowDialog();
+
+
 
 		}
 		
 		}
 	
-
+	this->Recarregar(sender, e);
 }
 private: System::Void inserir_diretor_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
@@ -520,7 +593,7 @@ private: System::Void inserir_diretor_Click(System::Object^ sender, System::Even
 	catch (Exception ^ ex) {
 		MessageBox::Show(ex->Message);
 	}
-
+	this->Recarregar(sender, e);
 }
 private: System::Void selecao_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -528,6 +601,104 @@ private: System::Void pesquisarToolStripMenuItem_Click(System::Object^ sender, S
 	Pesquisa^ pesq = gcnew Pesquisa(this);
 	 
 	pesq->ShowDialog();
+	this->Recarregar(sender, e);
+}
+
+
+
+
+private: System::Void lista_filmes_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
+	MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
+	MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.filme inner join mydb.diretor on " +
+		"mydb.filme.Diretor_idDiretor = mydb.diretor.idDiretor", conDatabase);
+	MySqlDataReader^ myreader;
+	//this->dataGridView1->DataSource = NULL;
+	this->dataGridView1->Rows->Clear();
+	//this->selecao->Items->Clear();
+
+
+
+	try
+	{
+		conDatabase->Open();
+		myreader = cmdDataBase->ExecuteReader();
+		int i = 0;
+		//this->erro->Text = "Chegou Aqqui";
+		this->dataGridView1->Columns["Column1"]->Visible = true;
+		this->dataGridView1->Columns["Column2"]->Visible = true;
+		this->dataGridView1->Columns["Column3"]->Visible = true;
+		this->dataGridView1->Columns["Id_Diretor"]->Visible = false;
+		
+		while (myreader->Read()) {
+
+			this->dataGridView1->Rows->Add(1);
+			this->dataGridView1->Rows[i]->SetValues(myreader->GetString(0),  myreader->GetString(1), myreader->GetString(3), myreader->GetString(4));
+
+			i += 1;
+		}
+
+	}
+	catch (Exception ^ ex) {
+		MessageBox::Show(ex->Message);
+	}
+
+
+
+
+
+
+
+
+
+
+}
+private: System::Void lista_diretor_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	String^ constring = L"datasource=localhost;port=3306;username=root;password=root";
+	MySqlConnection^ conDatabase = gcnew  MySqlConnection(constring);
+	MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.diretor;", conDatabase);
+	MySqlDataReader^ myreader;
+	//this->dataGridView1->DataSource = NULL;
+	this->dataGridView1->Rows->Clear();
+	//this->selecao->Items->Clear();
+
+
+
+	try
+	{
+		conDatabase->Open();
+		myreader = cmdDataBase->ExecuteReader();
+		int i = 0;
+		this->dataGridView1->Columns["Column1"]->Visible = false;
+		this->dataGridView1->Columns["Column2"]->Visible = false;
+		this->dataGridView1->Columns["Column3"]->Visible = true;
+		this->dataGridView1->Columns["Id_Diretor"]->Visible = true;
+		while (myreader->Read()) {
+
+			this->dataGridView1->Rows->Add(1);
+			this->dataGridView1->Rows[i]->SetValues("", "", myreader->GetString(0), myreader->GetString(1));
+
+			i += 1;
+		}
+
+	}
+	catch (Exception ^ ex) {
+		MessageBox::Show(ex->Message);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 };
 }
