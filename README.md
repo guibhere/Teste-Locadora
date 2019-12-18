@@ -7,6 +7,7 @@ do aplicativo.
 Ao compilar o codigo será exibido o form principal onde é possível observar:
  
 ### MYFORM
+![Principal](Teste2/Imagens/Principal.png)
 * Datagrid listando todos os filmes ou diretores, de acordo com a opção selecionada na caixa de "listagem"
  A edição e remoção de itens pode ser feito utilizando as opções à esquerda da listagem.
  
@@ -16,7 +17,7 @@ Ao compilar o codigo será exibido o form principal onde é possível observar:
  
 * Botão **Recarregar** permite a atualização dos dados na datagrid;
  
-* Menu **Item Pesquisar** para busca à base de dados.
+* Menu **Item Pesquisar** para busca à base de dados.            
  
  
 ### PESQUISAR  
