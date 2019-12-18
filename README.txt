@@ -1,5 +1,9 @@
 # Teste-Locadora
 Aplicação Desktop de uma locadora, em c++ utilizando Windows Forms para Soitic.
+
+Foi incluido ao repositorio um scrip Sql, locadora.sql, para criar a base de dados de acordo com os requisitos da aplicação,
+ademais, ja popula a base com alguns filmes e diretores, para facilitar os testes no aplicativo.
+
 Ao compilar o codigo será exibido o form principal, nele pode se observar:
 ###MYFORM###
 *Datagrid que lista todos os filmes ou diretores, dependendo de qual opção esta selecionada na caixa de "listagem" logo acima do Datagrid
