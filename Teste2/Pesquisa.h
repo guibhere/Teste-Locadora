@@ -70,6 +70,7 @@ namespace Teste2 {
 	private: System::Windows::Forms::DataGridViewButtonColumn^ Alterar;
 	private: System::Windows::Forms::DataGridViewButtonColumn^ Deletar;
 	private: System::Windows::Forms::CheckBox^ mostar_filmes;
+	private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -115,6 +116,7 @@ namespace Teste2 {
 			this->nome_titulo = (gcnew System::Windows::Forms::RadioButton());
 			this->id_select = (gcnew System::Windows::Forms::RadioButton());
 			this->mostar_filmes = (gcnew System::Windows::Forms::CheckBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -274,11 +276,21 @@ namespace Teste2 {
 			this->mostar_filmes->Text = L"Mostrar Filmes do Diretor";
 			this->mostar_filmes->UseVisualStyleBackColor = true;
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(12, 13);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(67, 13);
+			this->label1->TabIndex = 10;
+			this->label1->Text = L"Nome ou ID:";
+			// 
 			// Pesquisa
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(384, 452);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->mostar_filmes);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
