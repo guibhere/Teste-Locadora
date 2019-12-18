@@ -276,16 +276,6 @@ namespace Teste2 {
 			this->mostar_filmes->Text = L"Mostrar Filmes do Diretor";
 			this->mostar_filmes->UseVisualStyleBackColor = true;
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 13);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(65, 13);
-			this->label1->TabIndex = 10;
-			this->label1->Text = L"Nome ou Id:";
-			this->label1->Click += gcnew System::EventHandler(this, &Pesquisa::label1_Click);
-			// 
 			// Pesquisa
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
