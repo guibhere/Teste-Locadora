@@ -1,2 +1,0 @@
-#include "Alterar.h"
-
