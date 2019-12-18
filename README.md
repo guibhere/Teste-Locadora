@@ -7,7 +7,7 @@ do aplicativo.
 Ao compilar o codigo será exibido o form principal onde é possível observar:
  
 ### MYFORM
-![Principal](Teste2/Imagens/Principal.png)
+![Principal](Teste2/Imagens/Principal.PNG)
 * Datagrid listando todos os filmes ou diretores, de acordo com a opção selecionada na caixa de "listagem"
  A edição e remoção de itens pode ser feito utilizando as opções à esquerda da listagem.
  
