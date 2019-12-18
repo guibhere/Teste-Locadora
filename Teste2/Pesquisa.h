@@ -57,7 +57,7 @@ namespace Teste2 {
 	private: System::Windows::Forms::RadioButton^ pesquisadiretor;
 	private: System::Windows::Forms::Button^ pesquisar;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::TextBox^ debug;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nome;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
@@ -111,7 +111,6 @@ namespace Teste2 {
 			this->pesquisadiretor = (gcnew System::Windows::Forms::RadioButton());
 			this->pesquisar = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->debug = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->nome_titulo = (gcnew System::Windows::Forms::RadioButton());
 			this->id_select = (gcnew System::Windows::Forms::RadioButton());
@@ -130,7 +129,7 @@ namespace Teste2 {
 				this->Id_Filme,
 					this->Titulo, this->Diretor, this->Id_Diretor, this->Alterar, this->Deletar
 			});
-			this->dataGridView1->Location = System::Drawing::Point(268, 190);
+			this->dataGridView1->Location = System::Drawing::Point(12, 186);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->Size = System::Drawing::Size(357, 219);
@@ -183,7 +182,7 @@ namespace Teste2 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(268, 36);
+			this->textBox1->Location = System::Drawing::Point(12, 32);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(357, 20);
 			this->textBox1->TabIndex = 1;
@@ -212,7 +211,7 @@ namespace Teste2 {
 			// 
 			// pesquisar
 			// 
-			this->pesquisar->Location = System::Drawing::Point(402, 418);
+			this->pesquisar->Location = System::Drawing::Point(146, 414);
 			this->pesquisar->Name = L"pesquisar";
 			this->pesquisar->Size = System::Drawing::Size(75, 23);
 			this->pesquisar->TabIndex = 5;
@@ -224,7 +223,7 @@ namespace Teste2 {
 			// 
 			this->groupBox1->Controls->Add(this->pesquisafilme);
 			this->groupBox1->Controls->Add(this->pesquisadiretor);
-			this->groupBox1->Location = System::Drawing::Point(268, 62);
+			this->groupBox1->Location = System::Drawing::Point(12, 58);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(200, 51);
 			this->groupBox1->TabIndex = 6;
@@ -232,19 +231,11 @@ namespace Teste2 {
 			this->groupBox1->Text = L"Seleção de Pesquisa";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Pesquisa::groupBox1_Enter);
 			// 
-			// debug
-			// 
-			this->debug->Location = System::Drawing::Point(712, 129);
-			this->debug->Multiline = true;
-			this->debug->Name = L"debug";
-			this->debug->Size = System::Drawing::Size(100, 249);
-			this->debug->TabIndex = 7;
-			// 
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->nome_titulo);
 			this->groupBox2->Controls->Add(this->id_select);
-			this->groupBox2->Location = System::Drawing::Point(268, 119);
+			this->groupBox2->Location = System::Drawing::Point(12, 115);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(200, 51);
 			this->groupBox2->TabIndex = 8;
@@ -276,7 +267,7 @@ namespace Teste2 {
 			// mostar_filmes
 			// 
 			this->mostar_filmes->AutoSize = true;
-			this->mostar_filmes->Location = System::Drawing::Point(483, 87);
+			this->mostar_filmes->Location = System::Drawing::Point(227, 83);
 			this->mostar_filmes->Name = L"mostar_filmes";
 			this->mostar_filmes->Size = System::Drawing::Size(142, 17);
 			this->mostar_filmes->TabIndex = 9;
@@ -287,10 +278,9 @@ namespace Teste2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(904, 453);
+			this->ClientSize = System::Drawing::Size(384, 452);
 			this->Controls->Add(this->mostar_filmes);
 			this->Controls->Add(this->groupBox2);
-			this->Controls->Add(this->debug);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->pesquisar);
 			this->Controls->Add(this->textBox1);
@@ -331,7 +321,7 @@ private: System::Void pesquisar_Click(System::Object^ sender, System::EventArgs^
 	if (this->pesquisadiretor->Checked) {
 	
 		if (this->nome_titulo->Checked) {
-			if (mostar_filmes->Checked) {
+			if (!mostar_filmes->Checked) {
 				MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.diretor " +
 					" where mydb.diretor.nome like ('" + this->textBox1->Text + "');", conDatabase);
 				MySqlDataReader^ myreader;
@@ -390,7 +380,7 @@ private: System::Void pesquisar_Click(System::Object^ sender, System::EventArgs^
 			
 		}
 		else {
-			if (mostar_filmes->Checked) {
+			if (!mostar_filmes->Checked) {
 				MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from mydb.diretor " +
 					" where mydb.diretor.idDiretor like ('" + this->textBox1->Text + "');", conDatabase);
 				MySqlDataReader^ myreader;
@@ -502,7 +492,7 @@ private: System::Void pesquisar_Click(System::Object^ sender, System::EventArgs^
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	int linha = e->RowIndex;
 	int coluna = e->ColumnIndex;
-	this->debug->Text = " '"+linha+"'  '"+coluna+"' ";
+	//this->debug->Text = " '"+linha+"'  '"+coluna+"' ";
 	
 	
 	if ((e->ColumnIndex == 4) && (e->RowIndex > -1)) {

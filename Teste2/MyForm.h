@@ -62,7 +62,7 @@ namespace Teste2 {
 	private: System::Windows::Forms::TextBox^ textBox5;
 
 	private: System::Windows::Forms::ComboBox^ selecao;
-	private: System::Windows::Forms::TextBox^ erro;
+
 
 
 
@@ -77,7 +77,13 @@ namespace Teste2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id_Diretor;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewButtonColumn^ alterar_botao;
-	private: System::Windows::Forms::DataGridViewImageColumn^ Deletar;
+	private: System::Windows::Forms::DataGridViewButtonColumn^ Deletar;
+
+
+
+
+
+
 
 	protected:
 
@@ -94,14 +100,7 @@ namespace Teste2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Id_Diretor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->alterar_botao = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->Deletar = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Inserir = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -113,12 +112,17 @@ namespace Teste2 {
 			this->inserir_diretor = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->erro = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->pesquisarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->lista_filmes = (gcnew System::Windows::Forms::RadioButton());
 			this->lista_diretor = (gcnew System::Windows::Forms::RadioButton());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Id_Diretor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->alterar_botao = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->Deletar = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -136,55 +140,22 @@ namespace Teste2 {
 				this->Column1,
 					this->Column2, this->Id_Diretor, this->Column3, this->alterar_botao, this->Deletar
 			});
-			this->dataGridView1->Location = System::Drawing::Point(51, 89);
+			this->dataGridView1->Location = System::Drawing::Point(12, 89);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders;
 			this->dataGridView1->RowTemplate->Height = 25;
-			this->dataGridView1->Size = System::Drawing::Size(361, 305);
+			this->dataGridView1->Size = System::Drawing::Size(480, 305);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Id";
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Titulo";
-			this->Column2->Name = L"Column2";
-			// 
-			// Id_Diretor
-			// 
-			this->Id_Diretor->HeaderText = L"Id_DIretor";
-			this->Id_Diretor->Name = L"Id_Diretor";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Diretor";
-			this->Column3->Name = L"Column3";
-			// 
-			// alterar_botao
-			// 
-			this->alterar_botao->HeaderText = L"Alterar";
-			this->alterar_botao->Name = L"alterar_botao";
-			this->alterar_botao->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			// 
-			// Deletar
-			// 
-			this->Deletar->HeaderText = L"Deletar";
-			this->Deletar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Deletar.Image")));
-			this->Deletar->Name = L"Deletar";
-			this->Deletar->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(153, 400);
+			this->button1->Location = System::Drawing::Point(219, 400);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"Carregar";
+			this->button1->Text = L"Recarregar";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -230,9 +201,9 @@ namespace Teste2 {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->Inserir);
 			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Location = System::Drawing::Point(418, 50);
+			this->groupBox1->Location = System::Drawing::Point(498, 125);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(160, 305);
+			this->groupBox1->Size = System::Drawing::Size(160, 230);
 			this->groupBox1->TabIndex = 9;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Inserir Filme";
@@ -251,9 +222,9 @@ namespace Teste2 {
 			this->groupBox2->Controls->Add(this->inserir_diretor);
 			this->groupBox2->Controls->Add(this->label5);
 			this->groupBox2->Controls->Add(this->textBox5);
-			this->groupBox2->Location = System::Drawing::Point(611, 50);
+			this->groupBox2->Location = System::Drawing::Point(664, 125);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(155, 305);
+			this->groupBox2->Size = System::Drawing::Size(155, 230);
 			this->groupBox2->TabIndex = 10;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Inserir Diretor";
@@ -284,13 +255,6 @@ namespace Teste2 {
 			this->textBox5->Size = System::Drawing::Size(100, 20);
 			this->textBox5->TabIndex = 10;
 			// 
-			// erro
-			// 
-			this->erro->Location = System::Drawing::Point(638, 388);
-			this->erro->Name = L"erro";
-			this->erro->Size = System::Drawing::Size(127, 20);
-			this->erro->TabIndex = 12;
-			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->pesquisarToolStripMenuItem });
@@ -311,12 +275,12 @@ namespace Teste2 {
 			// 
 			this->groupBox3->Controls->Add(this->lista_filmes);
 			this->groupBox3->Controls->Add(this->lista_diretor);
-			this->groupBox3->Location = System::Drawing::Point(115, 27);
+			this->groupBox3->Location = System::Drawing::Point(153, 32);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Size = System::Drawing::Size(200, 51);
 			this->groupBox3->TabIndex = 14;
 			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Lista de\?";
+			this->groupBox3->Text = L"Listagem ";
 			// 
 			// lista_filmes
 			// 
@@ -342,13 +306,50 @@ namespace Teste2 {
 			this->lista_diretor->UseVisualStyleBackColor = true;
 			this->lista_diretor->CheckedChanged += gcnew System::EventHandler(this, &MyForm::lista_diretor_CheckedChanged);
 			// 
+			// Column1
+			// 
+			this->Column1->FillWeight = 53.85728F;
+			this->Column1->HeaderText = L"Id";
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->FillWeight = 128.6293F;
+			this->Column2->HeaderText = L"Titulo";
+			this->Column2->Name = L"Column2";
+			// 
+			// Id_Diretor
+			// 
+			this->Id_Diretor->FillWeight = 128.6293F;
+			this->Id_Diretor->HeaderText = L"Id_DIretor";
+			this->Id_Diretor->Name = L"Id_Diretor";
+			// 
+			// Column3
+			// 
+			this->Column3->FillWeight = 128.6293F;
+			this->Column3->HeaderText = L"Diretor";
+			this->Column3->Name = L"Column3";
+			// 
+			// alterar_botao
+			// 
+			this->alterar_botao->FillWeight = 84.11285F;
+			this->alterar_botao->HeaderText = L"Alterar";
+			this->alterar_botao->Name = L"alterar_botao";
+			this->alterar_botao->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			// 
+			// Deletar
+			// 
+			this->Deletar->FillWeight = 76.14214F;
+			this->Deletar->HeaderText = L"Deletar";
+			this->Deletar->Name = L"Deletar";
+			this->Deletar->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(831, 435);
 			this->Controls->Add(this->groupBox3);
-			this->Controls->Add(this->erro);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button1);
@@ -435,6 +436,7 @@ namespace Teste2 {
 				this->selecao->Items->Add(myreader1->GetString(1));
 				i += 1;
 			}
+			conDatabase1->Close();
 
 		}
 		catch (Exception ^ ex) {
@@ -483,6 +485,7 @@ namespace Teste2 {
 
 
 			}
+			conDatabase->Close();
 
 		}
 		catch (Exception ^ ex) {
@@ -531,13 +534,14 @@ namespace Teste2 {
 						conDatabase->Open();
 						myreader = cmdDataBase->ExecuteReader();
 						myreader->Read();
-						this->erro->AppendText(myreader->GetString(1));
+						//this->erro->AppendText(myreader->GetString(1));
 
 						String^ s = myreader->GetString(1);
 
 						Altera_Filme^ af = gcnew Altera_Filme(this);
 						af->setfilme(myreader->GetString(0), myreader->GetString(1), diretor);
 						af->ShowDialog();
+						conDatabase->Close();
 						//this->Close();
 
 					}
@@ -578,6 +582,7 @@ namespace Teste2 {
 				{
 					conDatabase->Open();
 					myreader = cmdDataBase->ExecuteReader();
+					conDatabase->Close();
 					
 				}
 				catch (Exception ^ ex) {
@@ -599,6 +604,7 @@ namespace Teste2 {
 					{
 						conDatabase->Open();
 						myreader = cmdDataBase->ExecuteReader();
+						conDatabase->Close();
 				
 					}
 					catch (Exception ^ ex) {
@@ -616,6 +622,7 @@ namespace Teste2 {
 
 			}
 			this->Recarregar(sender, e);
+			
 		}
 	
 private: System::Void inserir_diretor_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -632,10 +639,12 @@ private: System::Void inserir_diretor_Click(System::Object^ sender, System::Even
 		conDatabase->Open();
 		myreader = cmdDataBase->ExecuteReader();
 		int i = 0;
+		
 		while (myreader->Read()) {
 
 
 		}
+		conDatabase->Close();
 
 	}
 	catch (Exception ^ ex) {
@@ -685,6 +694,7 @@ private: System::Void lista_filmes_CheckedChanged(System::Object^ sender, System
 
 			i += 1;
 		}
+		conDatabase->Close();
 
 	}
 	catch (Exception ^ ex) {
@@ -728,6 +738,7 @@ private: System::Void lista_diretor_CheckedChanged(System::Object^ sender, Syste
 
 			i += 1;
 		}
+		conDatabase->Close();
 
 	}
 	catch (Exception ^ ex) {
