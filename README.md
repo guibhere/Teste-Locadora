@@ -6,7 +6,7 @@ do aplicativo.
  
 Ao compilar o codigo será exibido o form principal onde é possível observar:
  
-###MYFORM
+### MYFORM
 * Datagrid listando todos os filmes ou diretores, de acordo com a opção selecionada na caixa de "listagem"
  A edição e remoção de itens pode ser feito utilizando as opções à esquerda da listagem.
  
@@ -19,7 +19,7 @@ Ao compilar o codigo será exibido o form principal onde é possível observar:
 * Menu **Item Pesquisar** para busca à base de dados.
  
  
-###PESQUISAR
+### PESQUISAR  
 Acessível através do menu **pesquisar** no form principal.
  
 * Datagrid mostrando os resultados da pesquisa, com opção de editar ou remover itens através das opções à esquerda da
@@ -42,13 +42,13 @@ pesquisado.
  
 O resultado da pesquisa será apresentado como um datagrid.
  
-###ALTERAR_FILME
+### ALTERAR_FILME  
  
 Formulario para edição dos dados de um filme, acessível através do formulário principal ou pelo formulário
 de pesquisa. Carrega as informações do filme selecionado nos devidos campos, permitindo sua edição e subsequente
 persistência através da opção **Alterar**. Após a edição, o usuário será redirecionado ao formulário principal.
  
-###ALTERAR_DIRETOR
+### ALTERAR_DIRETOR  
 Formulario para edição dos dados de um diretor, acessível através do formulário principal ou pelo formulário
 de pesquisa. Carrega as informações do diretor selecionado nos devidos campos, permitindo sua edição e subsequente
 persistência através da opção **Alterar**. Após a edição, o usuário será redirecionado ao formulário principal.
