@@ -4,6 +4,16 @@ Aplicação Desktop de uma locadora, em c++ utilizando Windows Forms para Soitic
 O arquivo locadora.sql inclui a estrutura base do banco de dados bem como a popula com dados, facilitando os testes
 do aplicativo.
  
+Compilação dever ser feita no Visual Studio, porem, em versões mais recentes c++/clr foi 
+descontinuado, para se compilar a aplicação nessas versões se faz necessario a edição de algumas
+ propiedades do projeto:  
+* Linker->Advanced->Entry Point: Deve ter seu valor editado para "Main";  
+* Linker->System->SubSystem : Dever ser "Windows (/SUBSYSTEM:WINDOWS)";  
+
+
+Ademais, sobre dependencias, a unica existente é o Mysql como banco de dados, e sua biblioteca
+MySql::Data::MySqlClient;  
+
 Ao compilar o codigo será exibido o form principal onde é possível observar:
  
 ### MYFORM
